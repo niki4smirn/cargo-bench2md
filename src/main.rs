@@ -28,7 +28,7 @@ impl Table {
         println!("## {}", self.prefix);
         println!("**Note:** All measurements are in ns/iter.");
         println!("| Name | Median | Deviation |");
-        println!("|------|--------|-----------|");
+        println!("|------|-------:|----------:|");
         for Measurement(name, median, deviation) in &self.measurements {
             println!("| {} | {} | {} |", name, median, deviation);
         }
