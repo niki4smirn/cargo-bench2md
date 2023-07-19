@@ -25,7 +25,7 @@ impl Table {
     }
 
     fn print(&self) {
-        println!("## {}", self.prefix);
+        println!("### {}", self.prefix);
         println!("**Note:** All measurements are in ns/iter.");
         println!("| Name | Median | Deviation |");
         println!("|------|-------:|----------:|");
