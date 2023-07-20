@@ -25,7 +25,9 @@ impl Table {
     }
 
     fn print(&self) {
-        println!("### {}", self.prefix);
+        if !self.prefix.is_empty() {
+            println!("### {}", self.prefix);
+        }
         println!("**Note:** All measurements are in ns/iter.");
         println!("| Name | Median | Deviation |");
         println!("|------|-------:|----------:|");
@@ -39,7 +41,10 @@ impl Table {
 fn split_bench_name(name: String) -> (String, String) {
     let mut parts = name.rsplitn(2, "::");
     let name = parts.next().unwrap();
-    let prefix = parts.next().unwrap();
+    let prefix = match parts.next() {
+        Some(val) => val,
+        None => "",
+    };
     (prefix.to_string(), name.to_string())
 }
 
